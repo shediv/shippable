@@ -15,10 +15,6 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
 
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
 app.use(function(request, response, next){
   console.log(  "\033[34m \033[1m" + request.method , 
                 "\033[36m \033[1m REQUEST URL: " + "\033[32m "+request.url , 
@@ -27,7 +23,7 @@ app.use(function(request, response, next){
 });
 
 app.get('/', function(request, response) {
-  response.render('pages/index');
+  return response.status(200).json("Server started");
 });
 
 app.get('/issues', function(request, response) {
