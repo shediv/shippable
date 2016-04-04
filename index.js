@@ -22,8 +22,10 @@ app.use(function(request, response, next){
   next();
 });
 
-app.get('/', function(request, response) {
-  return response.status(200).json("Server started");
+app.use(express.static("./app"));
+
+app.get("/", function(req, res) {
+    res.sendFile("./app/index.html");
 });
 
 app.get('/issues', function(request, response) {
@@ -58,7 +60,7 @@ this.last24hours = function(datetime){
 	this.last7days = function(datetime){
 		var before = new Date(datetime),
     now = new Date();
-    return ( ( now - before ) < ( 1000 * 60 * 60 * 24 * 7)  ) ? true : false;
+    return ( ( now - before ) < ( 1000 * 60 * 60 * 24 * 7) && ( now - before ) > ( 1000 * 60 * 60 * 24)) ? true : false;
 	}
 
 	this.above7days = function(datetime){
