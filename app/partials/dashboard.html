@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-lg-12">
+    <div class="panel panel-primary">
+            <div class="panel-heading">
+                <strong>Your Dashboard</strong>
+            </div>
+            <div class="form-group">
+                <label for="buildingName" class="col-sm-2 control-label">My Building is <strong>{{data.building.name}} in {{data.building.venue}}</strong></label>                        
+            </div>
+
+            <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Menu</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="restuarant in data.building.restuarants">
+                <td>{{ restuarant.name }}</td>
+                <td>{{ restuarant.food }}</td>
+                <td><button type="button" class="btn btn-primary">Check Menu</button></td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
