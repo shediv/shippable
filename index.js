@@ -30,8 +30,8 @@ app.get("/", function(req, res) {
 
 app.get('/issues', function(request, response) {
   var ghrepo = client.repo(request.query.urlSlug);
-	ghrepo.issues(function (err, status, body, headers) {
-		//return res.status(200).json({status : status, count : status.length})
+	ghrepo.issues(1, 100, function (err, status, body, headers) {
+		//return response.status(200).json({ count : status.length})
 		var last24hoursData = [];
 		var last7daysData = [];
 		var above7daysData = [];
